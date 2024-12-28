@@ -9,9 +9,11 @@ import org.junit.runner.RunWith;
 @CucumberOptions (
         features = "src/test/java/features",
         glue = {"utility", "stepDefinitions" },
+        plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
         tags = "@runner", dryRun = false
-
 )
 
+
 public class TestRunner {
+
 }
