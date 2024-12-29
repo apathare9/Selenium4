@@ -67,5 +67,13 @@ public class BrowserDriver {
     }
 
 
+    public static WebDriver getDriver() {
+        if (driver != null) {
+            return BrowserDriver.driver;
+        }
+        return driver;
+    }
+
+
 }
 

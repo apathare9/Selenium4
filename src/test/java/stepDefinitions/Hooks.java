@@ -1,37 +1,36 @@
 package stepDefinitions;
 
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
-import io.cucumber.java.After;
-import io.cucumber.java.AfterAll;
-import io.cucumber.java.Before;
-import io.cucumber.java.BeforeAll;
+
+import com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter;
+import cucumber.runtime.Backend;
+import io.cucumber.java.*;
 import utility.BrowserDriver;
 import utility.Reporter;
 
-
 public class Hooks extends BrowserDriver {
 
-    public static ExtentReports extentReportsObj;
-//    public static ExtentTest extentTestObj;
-    BrowserDriver browserDriverObj = new BrowserDriver();
+    Reporter reporter;
+    public static Scenario scenario;
 
-    @BeforeAll
-    public static void report(){
-//        extentReportsObj = Reporter.createReport("GoibiboReport");
-    }
     @Before
     public void setUp(){
         openBrowser();
     }
+
     @After
     public void tearDown(){
         driver.quit();
     }
 
-    @AfterAll
-    public static void flush(){
-//        extentReportsObj.flush();
+    @BeforeStep()
+    public void loggerHtml(Scenario scenario) {
+        Hooks.scenario = scenario;
+    }
+
+
+    @AfterStep()
+    public void captureScreenshot(Scenario scenario) throws Exception {
+        Reporter.takeScreenshot(scenario);
     }
 
 }
