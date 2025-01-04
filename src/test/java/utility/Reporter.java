@@ -1,9 +1,6 @@
 package utility;
 
-import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter;
-import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-import com.aventstack.extentreports.reporter.ReporterConfigurable;
 import io.cucumber.java.Scenario;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -15,15 +12,11 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Base64;
 import java.util.Date;
-import java.util.Properties;
 
 import static utility.BrowserDriver.driver;
 import static utility.BrowserDriver.getDriver;
 
 public class Reporter {
-
-
-
 
     public static String getBase64Screenshots() throws IOException {
 
@@ -35,7 +28,7 @@ public class Reporter {
 
         String sDate = sdf.format(date);
 
-        String screenshotdir = System.getProperty("user.dir") + "/folderName/" + "imageName" + sDate + ".png";
+        String screenshotdir = System.getProperty("user.dir") + "/Screenshots/" + "Selenium4Cucumber" + sDate + ".png";
         File screenshotName = new File(screenshotdir);
         FileUtils.copyFile(src, screenshotName);
 

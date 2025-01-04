@@ -12,17 +12,6 @@ import java.util.Properties;
 
 public class BrowserDriver {
 
-//    public static WebDriver driver;
-//
-//    public static void openWebsite(String website) {
-//        driver = new ChromeDriver();
-//        driver.get("https://www.ajinkyapathare.netlify.app");
-//
-//        driver.get(website);
-//    }
-
-    // ------------
-
     public static WebDriver driver;
 
     Properties properties;
@@ -66,14 +55,12 @@ public class BrowserDriver {
         driver.quit();
     }
 
-
     public static WebDriver getDriver() {
         if (driver != null) {
             return BrowserDriver.driver;
         }
         return driver;
     }
-
 
 }
 

@@ -40,14 +40,9 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.17.0</version>
+            <version>4.27.0</version>
         </dependency>
-        <dependency>
-            <groupId>io.github.bonigarcia</groupId>
-            <artifactId>webdrivermanager</artifactId>
-            <version>5.7.0</version>
-            <scope>test</scope>
-        </dependency>
+
 
 <!--        <dependency>-->
 <!--            <groupId>tech.grasshopper</groupId>-->
@@ -62,6 +57,19 @@
             <version>1.14.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>2.0.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-devtools-v131</artifactId>
+            <version>4.27.0</version>
+        </dependency>
+
+
 
         <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
         <dependency>
@@ -71,6 +79,14 @@
         </dependency>
 
 <!--        &lt;!&ndash; https://mvnrepository.com/artifact/com.aventstack/extentreports &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.aventstack</groupId>-->
+<!--            <artifactId>extentreports</artifactId>-->
+<!--            <version>4.1.6</version>-->
+<!--        </dependency>-->
+
+
+        <!--        &lt;!&ndash; https://mvnrepository.com/artifact/com.aventstack/extentreports &ndash;&gt;-->
 <!--        <dependency>-->
 <!--            <groupId>com.aventstack</groupId>-->
 <!--            <artifactId>extentreports</artifactId>-->
@@ -113,12 +129,17 @@
 <!--        </dependency>-->
 <!--        &lt;!&ndash; Thanks for using https://jar-download.com &ndash;&gt;-->
 
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>5.2.2</version>
+        </dependency>
 
-
-
-
-
-
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>5.2.2</version>
+        </dependency>
 
     </dependencies>
 
