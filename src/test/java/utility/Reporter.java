@@ -1,5 +1,6 @@
 package utility;
 
+import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter;
 import io.cucumber.java.Scenario;
 import org.apache.commons.io.FileUtils;
@@ -9,6 +10,8 @@ import stepDefinitions.Hooks;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Base64;
 import java.util.Date;
@@ -81,4 +84,16 @@ public class Reporter {
 
     }
 
+
+    public static String getScreenshotPath(String scenarioName) throws IOException {
+        String screenshotName = scenarioName.replaceAll(" ", "_") + "_" + new SimpleDateFormat("yyyyMMddhhmmss").format(new Date()) + ".png";
+        File source = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        String destination = System.getProperty("user.dir") + "/target/screenshots/" + screenshotName;
+        FileUtils.copyFile(source, new File(destination));
+        return destination;
+    }
+
+    public static byte[] getByteArrayFromFile(String filePath) throws IOException {
+        return Files.readAllBytes(Paths.get(filePath));
+    }
 }

@@ -44,11 +44,11 @@
         </dependency>
 
 
-<!--        <dependency>-->
-<!--            <groupId>tech.grasshopper</groupId>-->
-<!--            <artifactId>extentreports-cucumber7-adapter</artifactId>-->
-<!--            <version>1.7.0</version>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>tech.grasshopper</groupId>-->
+        <!--            <artifactId>extentreports-cucumber7-adapter</artifactId>-->
+        <!--            <version>1.7.0</version>-->
+        <!--        </dependency>-->
 
         <!-- https://mvnrepository.com/artifact/tech.grasshopper/extentreports-cucumber7-adapter -->
         <dependency>
@@ -78,20 +78,20 @@
             <version>5.1.1</version>
         </dependency>
 
-<!--        &lt;!&ndash; https://mvnrepository.com/artifact/com.aventstack/extentreports &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>com.aventstack</groupId>-->
-<!--            <artifactId>extentreports</artifactId>-->
-<!--            <version>4.1.6</version>-->
-<!--        </dependency>-->
+        <!--        &lt;!&ndash; https://mvnrepository.com/artifact/com.aventstack/extentreports &ndash;&gt;-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.aventstack</groupId>-->
+        <!--            <artifactId>extentreports</artifactId>-->
+        <!--            <version>4.1.6</version>-->
+        <!--        </dependency>-->
 
 
         <!--        &lt;!&ndash; https://mvnrepository.com/artifact/com.aventstack/extentreports &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>com.aventstack</groupId>-->
-<!--            <artifactId>extentreports</artifactId>-->
-<!--            <version>4.1.7</version>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.aventstack</groupId>-->
+        <!--            <artifactId>extentreports</artifactId>-->
+        <!--            <version>4.1.7</version>-->
+        <!--        </dependency>-->
 
 
         <dependency>
@@ -116,18 +116,18 @@
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.vimalselvam/cucumber-extentsreport -->
-<!--        <dependency>-->
-<!--            <groupId>com.vimalselvam</groupId>-->
-<!--            <artifactId>cucumber-extentsreport</artifactId>-->
-<!--            <version>3.1.1</version>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.vimalselvam</groupId>-->
+        <!--            <artifactId>cucumber-extentsreport</artifactId>-->
+        <!--            <version>3.1.1</version>-->
+        <!--        </dependency>-->
 
-<!--        <dependency>-->
-<!--            <groupId>com.vimalselvam</groupId>-->
-<!--            <artifactId>cucumber-extentsreport</artifactId>-->
-<!--            <version>2.0.4</version>-->
-<!--        </dependency>-->
-<!--        &lt;!&ndash; Thanks for using https://jar-download.com &ndash;&gt;-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.vimalselvam</groupId>-->
+        <!--            <artifactId>cucumber-extentsreport</artifactId>-->
+        <!--            <version>2.0.4</version>-->
+        <!--        </dependency>-->
+        <!--        &lt;!&ndash; Thanks for using https://jar-download.com &ndash;&gt;-->
 
         <dependency>
             <groupId>org.apache.poi</groupId>

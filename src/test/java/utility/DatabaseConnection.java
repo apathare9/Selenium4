@@ -1,77 +1,43 @@
     package utility;
 
     import java.sql.*;
+    import java.util.Properties;
 
     public class DatabaseConnection {
 
-//        public static void readData() {
-//
-//            try {
-//
-//    //          Driver Manager : import java.util.DriverManager;
-//
-//    //          Connection Establishment :
-//                String url = "jdbc:mysql://localhost:3306/";
-//                String db = "Selenium4Xpaths";
-//                String username = "root";
-//                String password = "";
-//
-//    //            import java.util.Connection;
-//
-//                Connection conn = DriverManager.getConnection(url+db, username, password);
-//                Statement st = conn.createStatement();
-//
-//    //            Statement Execution - query
-//    //            String query = "SELECT * FROM Selenium4Xpaths.LOCATORS";
-//
-//                String query = "SELECT MODULE_NAME, LOCATOR_REFERENCE_VALUE" +
-//                        "FROM LOCATORS" +
-//                        "WHERE MODULE_NAME = 'GoIbibo' AND TYPE_OF_SELECTOR = 'xpath' AND LOCATOR_REFERENCE = 'PopupCloseButton';";
-//                ResultSet rs = st.executeQuery(query);
-//
-//
-//                while (rs.next()) {
-//    //                System.out.println("1 = " + rs.getString(1));
-//    //                System.out.println("2 = " + rs.getString(2));
-//    //                System.out.println("3 = " + rs.getString(3));
-//    //                System.out.println("4 = " + rs.getString(4));
-//    //                System.out.println("5 = " + rs.getString(5));
-//
-//                    System.out.println("1 = " + rs.getString(1));
-//                }
-//
-//                System.out.println("Data Retrieved Successfully" );
-//
-//    //            Close Connection
-//                conn.close();
-//
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//
-//        }
-
-        public static void readData() {
+        public static String locatorReferenceValue = null;
+        public static String getLocatorReference(String locator) {
             try {
-                String url = "jdbc:mysql://localhost:3306/";
-                String db = "Selenium4Xpaths";
-                String username = "root";
-                String password = "";
+
+                Properties prop = PropertyFileReader.loadProperties();
+                String url = prop.getProperty("databaseUrl");
+                String db = prop.getProperty("db");
+                String username = prop.getProperty("username");
+                String password = prop.getProperty("password");
+
+                System.out.println(url + "----");
+                System.out.println(db + "----");
+                System.out.println(username + "----");
+                System.out.println(password + "----");
+
+                String val = url + db;
+                System.out.println(val);
 
                 Connection conn = DriverManager.getConnection(url + db, username, password);
 
-                String query = "SELECT MODULE_NAME, LOCATOR_REFERENCE_VALUE FROM LOCATORS WHERE MODULE_NAME = ? AND TYPE_OF_SELECTOR = ? AND LOCATOR_REFERENCE = ?";
+                String query = "SELECT MODULE_NAME, LOCATOR_REFERENCE_VALUE FROM LOCATORS WHERE MODULE_NAME = ? AND LOCATOR_REFERENCE = ?";
 
                 PreparedStatement pstmt = conn.prepareStatement(query);
                 pstmt.setString(1, "GoIbibo");
-                pstmt.setString(2, "xpath");
-                pstmt.setString(3, "PopupCloseButton");
+                pstmt.setString(2, locator);
 
                 ResultSet rs = pstmt.executeQuery();
 
+//                String locatorReferenceValue = "";
                 while (rs.next()) {
                     System.out.println("MODULE_NAME: " + rs.getString("MODULE_NAME"));
                     System.out.println("LOCATOR_REFERENCE_VALUE: " + rs.getString("LOCATOR_REFERENCE_VALUE"));
+                    locatorReferenceValue = rs.getString("LOCATOR_REFERENCE_VALUE");
                     System.out.println();
                 }
 
@@ -80,14 +46,16 @@
                 pstmt.close();
                 conn.close();
 
-            } catch (SQLException e) {
+                return locatorReferenceValue;
+
+
+            } catch (Exception e) {
                 e.printStackTrace();
+                return null;
             }
         }
 
-        public static void main(String[] args) {
-            readData();
-        }
+
     }
 
 

@@ -1,8 +1,8 @@
 package stepDefinitions;
 
 
+import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter;
-import cucumber.runtime.Backend;
 import io.cucumber.java.*;
 import utility.BrowserDriver;
 import utility.Reporter;
@@ -27,10 +27,15 @@ public class Hooks extends BrowserDriver {
         Hooks.scenario = scenario;
     }
 
-
     @AfterStep()
     public void captureScreenshot(Scenario scenario) throws Exception {
-        Reporter.takeScreenshot(scenario);
+        if(Hooks.scenario.isFailed()) {
+            ExtentCucumberAdapter.getCurrentScenario().fail("Test - Failed - " + scenario.getName() );
+            ExtentCucumberAdapter.addTestStepScreenCaptureFromPath(Reporter.getBase64Screenshots());
+            ExtentCucumberAdapter.getCurrentScenario().log(Status.FAIL, scenario.getName());
+            Reporter.takeScreenshot(scenario);
+        }
+
     }
 
 }
