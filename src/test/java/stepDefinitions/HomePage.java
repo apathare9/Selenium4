@@ -5,6 +5,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import utility.ExcelReader;
+import utility.LoggerHandler;
 import utility.Reporter;
 import utility.Screenshot;
 
@@ -23,6 +24,7 @@ public class HomePage {
         System.out.println("------- Total Row Count : " + totalRowCount + " -------");
         System.out.println("------- Total Column Count : " + totalColumnCount + " -------");
         System.out.println("------- Cell Data : " + cellData + " -------");
+        LoggerHandler.info("-------- logger working --------");
         Reporter.addStepLog("Test1");
     }
     @When("User clicks on Formal Shoes drop down")
