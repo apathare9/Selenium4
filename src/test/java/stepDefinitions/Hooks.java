@@ -13,22 +13,22 @@ public class Hooks extends BrowserDriver {
     public static Scenario scenario;
 
     @Before
-    public void setUp(){
+    public void setUp(Scenario scenario){
         openBrowser();
     }
 
     @After
-    public void tearDown(){
+    public void tearDown(Scenario scenario) throws Exception {
         driver.quit();
     }
 
     @BeforeStep()
-    public void loggerHtml(Scenario scenario) {
+    public static void loggerHtml(Scenario scenario) {
         Hooks.scenario = scenario;
     }
 
     @AfterStep()
-    public void captureScreenshot(Scenario scenario) throws Exception {
+    public static void captureScreenshot(Scenario scenario) throws Exception {
         if(Hooks.scenario.isFailed()) {
             ExtentCucumberAdapter.getCurrentScenario().fail("Test - Failed - " + scenario.getName() );
             ExtentCucumberAdapter.addTestStepScreenCaptureFromPath(Reporter.getBase64Screenshots());

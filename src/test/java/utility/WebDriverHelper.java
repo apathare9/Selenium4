@@ -7,20 +7,24 @@ import static utility.BrowserDriver.driver;
 
 public class WebDriverHelper {
 
-    public static void clickOnElement(String locator, String statement) throws Exception {
+    public static void clickOnElement(String locator, String statement) throws Throwable {
         try {
-            WebElement webElement = driver.findElement(By.xpath(DatabaseConnection.getLocatorReference(locator)));
+            WebElement webElement = driver.findElement(By.xpath(DatabaseConnection.getLocatorName(locator)));
             webElement.click();
-            String value = DatabaseConnection.getLocatorReference(locator);
+            String value = DatabaseConnection.getLocatorName(locator);
             Reporter.addStepLog(statement);
             System.out.println("----------" + value + "----------");
-//            ExtentCucumberAdapter.addTestStepLog(statement);
             LoggerHandler.info(statement);
-        } catch (Exception e) {
-            LoggerHandler.error(statement + "is failed");
+        }
+        catch (Throwable e) {
+            Reporter.addStepLog(statement + " is failed");
+            LoggerHandler.error(statement + " is failed");
             e.printStackTrace();
+            throw e;
         }
 
     }
+
+
 
 }
